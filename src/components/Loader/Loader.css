@@ -1,0 +1,23 @@
+.container__loader {
+  width: 100%;
+  background-color: var(--color-gray-light-2);
+  border-radius: 1rem;
+  overflow-x: hidden;
+}
+.loader {
+  width: 40%;
+  height: 5px;
+  border-radius: 1rem;
+  background-color: var(--color-blue);
+
+  animation: wave 2s ease infinite;
+}
+
+@-webkit-keyframes wave {
+  0% {
+    transform: translate(-100px);
+  }
+  100% {
+    transform: translate(300px);
+  }
+}
