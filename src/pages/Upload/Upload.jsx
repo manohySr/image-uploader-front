@@ -20,7 +20,9 @@ export default function Upload() {
         type="file"
         accept="image/*"
         hidden
-        onChange={(e) => fileSet(e.target.files[0])}
+        onChange={(e) => {
+          fileSet(e.target.files[0]);
+        }}
       />
       <div className="container">
         <div className="mb-2">

@@ -5,8 +5,7 @@ import Uploaded from './pages/Uploaded/Uploaded';
 
 import ImageContext from './imageContext';
 import './style.css';
-
-import api from '../service';
+import upload from '../lib/cloudinary/upload';
 
 export default function App() {
   const [file, fileSet] = useState(null);
@@ -18,19 +17,12 @@ export default function App() {
     async function uploadFile(file) {
       if (file) {
         try {
-          let formdata = new FormData();
-          formdata.append('file', file);
-          const requestOptions = {
-            method: 'POST',
-            body: formdata,
-            redirect: 'follow',
-          };
-          const response = await fetch(api, requestOptions);
           stateSet(1);
-          const result = await response.json();
-          dataSet(result.data);
+          const response = await upload(file);
+          dataSet(response.url);
           stateSet(2);
         } catch (error) {
+          console.log(error);
           stateSet(0);
         }
       }

@@ -10,7 +10,7 @@ export default function Uploaded() {
   const [state, setState] = useState(false);
 
   const { data } = useContext(ImageContext);
-  const link = data.imagePath;
+  const link = data;
 
   function copyText(id) {
     // Get the text field
